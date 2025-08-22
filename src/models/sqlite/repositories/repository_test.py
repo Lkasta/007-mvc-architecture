@@ -18,12 +18,21 @@ def test_delete_pet():
   repo = PetsRepository(db_connection_handler)
   repo.delete_pets(name)
 
-@pytest.mark.skip(reason="interacao com o banco")
+@pytest.mark.skip(reason="database interaction")
 def test_insert_person():
-  first_name = "test name"
-  last_name = "test last"
-  age = 77
-  pet_id = 2
+  first_name = "Jonas"
+  last_name = "Alves"
+  age = 20
+  pet_id = 7
 
   repo = PeopleRepository(db_connection_handler)
   repo.insert_person(first_name, last_name, age, pet_id)
+
+@pytest.mark.skip(reason="database interaction")
+def test_get_person():
+  person_id = 2
+
+  repo = PeopleRepository(db_connection_handler)
+  response = repo.get_person(person_id)
+  print(response)
+  print(response.pet_name)
